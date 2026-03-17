@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 94 110">
+  <path fill="#FFA500" d="M47 5C25 5 10 25 10 45c0 15 8 30 20 40l-5 20h44l-5-20c12-10 20-25 20-40C84 25 69 5 47 5z"/>
+  <ellipse fill="#fff" cx="35" cy="40" rx="8" ry="10"/>
+  <ellipse fill="#fff" cx="59" cy="40" rx="8" ry="10"/>
+  <ellipse fill="#000" cx="35" cy="42" rx="4" ry="6"/>
+  <ellipse fill="#000" cx="59" cy="42" rx="4" ry="6"/>
+  <ellipse fill="#FFA500" cx="47" cy="55" rx="5" ry="4"/>
+  <path fill="#FFA500" d="M30 25l-15-5v15l15 5z M64 25l15-5v15l-15 5z"/>
+  <path fill="#000" d="M33 48l3 3 7-7 M61 48l-3 3-7-7"/>
+  <line x1="47" y1="55" x2="47" y2="70" stroke="#000" stroke-width="2"/>
+  <line x1="40" y1="85" x2="35" y2="100" stroke="#000" stroke-width="3"/>
+  <line x1="54" y1="85" x2="59" y2="100" stroke="#000" stroke-width="3"/>
+</svg>

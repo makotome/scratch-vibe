@@ -1,0 +1,267 @@
+.stage-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-primary);
+  overflow: hidden;
+}
+
+.stage-wrapper.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  border-radius: 0;
+  border: none;
+}
+
+.stage-header {
+  height: 40px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  flex-shrink: 0;
+}
+
+.stage-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+}
+
+.stage-icon {
+  font-size: 16px;
+}
+
+.stage-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stage-control-btn {
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+  color: var(--text-muted);
+}
+
+.stage-control-btn:hover {
+  background: var(--border-light);
+  color: var(--text-primary);
+}
+
+.stage {
+  flex: 1;
+  background: var(--bg-primary);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Konva 舞台样式保持不变 */
+.stage canvas {
+  border-radius: 0 !important;
+}
+
+/* ================ 响应式设计 ================ */
+
+/* 中等屏幕优化 */
+@media (max-width: 1200px) {
+  .stage-header {
+    height: 38px;
+    padding: 0 10px;
+  }
+
+  .stage-title {
+    font-size: var(--font-size-small);
+  }
+
+  .stage-icon {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 992px) {
+  .stage-header {
+    height: 36px;
+    padding: 0 8px;
+  }
+
+  .stage-control-btn {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+/* 平板横屏适配 */
+@media (max-width: 768px) and (orientation: landscape) {
+  .stage-header {
+    height: 32px;
+    padding: 0 6px;
+  }
+
+  .stage-title {
+    gap: 6px;
+  }
+
+  .stage-icon {
+    font-size: 12px;
+  }
+
+  .stage-controls {
+    gap: 6px;
+  }
+
+  .stage-control-btn {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* 移动端竖屏和小屏幕适配 */
+@media (max-width: 768px) and (orientation: portrait),
+(max-width: 640px) {
+  .stage-header {
+    height: 40px;
+    padding: 0 12px;
+  }
+
+  .stage-controls {
+    gap: 8px;
+  }
+
+  .stage-control-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+  }
+
+  /* 舞台内容区域优化 */
+  .stage {
+    background: #E7E7E7;
+    padding: 8px;
+  }
+
+  /* 移动端舞台大小自适应 */
+}
+
+/* 超小屏幕优化 */
+@media (max-width: 480px) {
+  .stage-wrapper.fullscreen {
+    border-radius: 0;
+  }
+
+  .stage-header {
+    height: 40px;
+    padding: 0 8px;
+  }
+
+  .stage-title {
+    font-size: var(--font-size-small);
+    gap: 6px;
+  }
+
+  .stage-icon {
+    font-size: 14px;
+  }
+
+  .stage-controls {
+    gap: 6px;
+  }
+
+  .stage-control-btn {
+    width: 28px;
+    height: 28px;
+  }
+
+  .stage {
+    padding: 4px;
+  }
+}
+
+/* 触摸设备优化 */
+@media (hover: none) and (pointer: coarse) {
+  .stage-control-btn {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .stage-control-btn:hover {
+    background: var(--border-light);
+    transform: none;
+  }
+
+  .stage-control-btn:active {
+    background: var(--border-color);
+    transform: scale(0.95);
+  }
+}
+
+/* 全屏模式优化 */
+.stage-wrapper.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  border-radius: 0;
+  border: none;
+  background: #000;
+}
+
+.stage-wrapper.fullscreen .stage-header {
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  backdrop-filter: blur(10px);
+}
+
+.stage-wrapper.fullscreen .stage {
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stage-wrapper.fullscreen .stage-control-btn {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.stage-wrapper.fullscreen .stage-control-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.stage-title {
+  font-size: var(--font-size-small);
+}
+
+.stage-icon {
+  font-size: 14px;
+}
+
+.stage-control-btn {
+  width: 20px;
+  height: 20px;
+}
+}

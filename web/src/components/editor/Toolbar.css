@@ -1,0 +1,282 @@
+/* Scratch官方风格控制按钮 */
+.scratch-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.scratch-control-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all var(--transition-medium);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: var(--font-weight-bold);
+  color: white;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.15),
+    0 2px 4px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+}
+
+.scratch-control-btn:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.15), transparent);
+  border-radius: 20px 20px 0 0;
+}
+
+.scratch-control-btn:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.15),
+    0 4px 8px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.scratch-control-btn:active {
+  transform: translateY(0);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.15),
+    0 1px 2px rgba(0, 0, 0, 0.2),
+    inset 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+/* 绿旗按钮 */
+.scratch-control-btn.green-flag {
+  background: linear-gradient(180deg, #52C832 0%, #389E1F 100%);
+  border: 1px solid #2E7D18;
+}
+
+.scratch-control-btn.green-flag:hover {
+  background: linear-gradient(180deg, #5ACE3A 0%, #3FA525 100%);
+}
+
+.scratch-control-btn.green-flag.active {
+  background: linear-gradient(180deg, #389E1F 0%, #2E7D18 100%);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.15),
+    inset 0 2px 4px rgba(0, 0, 0, 0.2);
+  transform: translateY(1px);
+}
+
+.scratch-control-btn.green-flag.active .flag-icon {
+  transform: scale(0.95);
+}
+
+.flag-icon {
+  flex-shrink: 0;
+  filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.15));
+  transition: transform var(--transition-fast);
+}
+
+/* 停止按钮 */
+.scratch-control-btn.stop {
+  background: linear-gradient(180deg, #FF4C4C 0%, #D73A3A 100%);
+  border: 1px solid #B82828;
+}
+
+.scratch-control-btn.stop:hover {
+  background: linear-gradient(180deg, #FF5858 0%, #E04444 100%);
+}
+
+.scratch-control-btn.stop:active {
+  background: linear-gradient(180deg, #D73A3A 0%, #B82828 100%);
+}
+
+.stop-icon {
+  flex-shrink: 0;
+  filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.15));
+  transition: transform var(--transition-fast);
+}
+
+/* 禁用状态 */
+.scratch-control-btn.disabled {
+  background: linear-gradient(180deg, #E6E6E6 0%, #CCCCCC 100%);
+  border: 1px solid #B3B3B3;
+  cursor: not-allowed;
+  color: #999999;
+  text-shadow: none;
+}
+
+.scratch-control-btn.disabled:hover {
+  transform: none;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.15),
+    0 2px 4px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.scratch-control-btn.disabled .stop-icon {
+  opacity: 0.6;
+}
+
+.button-text {
+  font-size: 12px;
+  font-weight: var(--font-weight-bold);
+  white-space: nowrap;
+}
+
+/* 响应式 - 在小屏幕上隐藏文字，只显示图标 */
+@media (max-width: 768px) {
+  .button-text {
+    display: none;
+  }
+
+  .scratch-control-btn {
+    padding: 8px;
+    min-width: 36px;
+    border-radius: 50%;
+  }
+
+  .scratch-control-btn:before {
+    border-radius: 50%;
+  }
+}
+
+/* 传统工具栏样式（保持向后兼容） */
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  background: var(--bg-header);
+}
+
+.toolbar-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.toolbar-right {
+  display: flex;
+  gap: 8px;
+}
+
+.toolbar-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--transition-medium);
+  background: var(--primary-color);
+  color: var(--text-secondary);
+  font-size: 16px;
+  box-shadow: var(--shadow-light);
+}
+
+.toolbar-btn:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+  box-shadow: var(--shadow-medium);
+}
+
+.toolbar-btn.green-flag {
+  background: var(--success-color);
+}
+
+.toolbar-btn.green-flag:hover {
+  background: #0CAD80;
+}
+
+.toolbar-btn.green-flag.active {
+  background: #0A9B6F;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.toolbar-btn.stop {
+  background: var(--secondary-color);
+}
+
+.toolbar-btn.stop:hover {
+  background: #E85A74;
+}
+
+.toolbar-btn.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.toolbar-btn.disabled:hover {
+  background: var(--primary-color);
+  transform: none;
+  opacity: 0.5;
+}
+
+/* 紧凑版工具栏控件（用于头部） */
+.toolbar-controls-compact {
+  display: flex;
+  gap: 8px;
+}
+
+.control-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: var(--transition-medium);
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--text-secondary);
+  font-size: 14px;
+  box-shadow: var(--shadow-light);
+}
+
+.control-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.control-btn.green-flag {
+  background: var(--success-color);
+}
+
+.control-btn.green-flag:hover {
+  background: #0CAD80;
+}
+
+.control-btn.green-flag.active {
+  background: #0A9B6F;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.control-btn.stop {
+  background: var(--secondary-color);
+}
+
+.control-btn.stop:hover {
+  background: #E85A74;
+}
+
+.control-btn.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.control-btn.disabled:hover {
+  background: var(--secondary-color);
+  transform: none;
+  opacity: 0.4;
+}

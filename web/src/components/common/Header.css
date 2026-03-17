@@ -1,0 +1,288 @@
+.scratch-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    background: var(--bg-header);
+    color: var(--text-secondary);
+    padding: 0 20px;
+    box-shadow: var(--shadow-light);
+    z-index: 100;
+    position: relative;
+}
+
+/* 左侧区域 */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 1;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    color: var(--text-secondary);
+}
+
+.scratch-logo {
+    height: 24px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    /* 使 Logo 呈现白色 */
+}
+
+.header-menu {
+    display: flex;
+    gap: 8px;
+}
+
+.menu-item {
+    position: relative;
+}
+
+.menu-button {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-normal);
+    transition: var(--transition-medium);
+}
+
+.menu-button:hover,
+.menu-button.active {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.menu-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    box-shadow: var(--shadow-medium);
+    min-width: 140px;
+    z-index: 1000;
+    margin-top: 4px;
+}
+
+.dropdown-item {
+    width: 100%;
+    padding: 10px 12px;
+    border: none;
+    background: transparent;
+    color: var(--text-primary);
+    text-align: left;
+    cursor: pointer;
+    font-size: var(--font-size-small);
+    transition: var(--transition-fast);
+}
+
+.dropdown-item:first-child {
+    border-radius: 6px 6px 0 0;
+}
+
+.dropdown-item:last-child {
+    border-radius: 0 0 6px 6px;
+}
+
+.dropdown-item:hover {
+    background: var(--bg-tertiary);
+}
+
+/* 中间区域 */
+.header-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    min-width: 200px;
+}
+
+.project-name {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: var(--font-size-large);
+    font-weight: var(--font-weight-bold);
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: var(--transition-medium);
+    max-width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.project-name:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.project-name-input {
+    background: var(--bg-primary);
+    border: 2px solid var(--primary-color);
+    color: var(--text-primary);
+    font-size: var(--font-size-large);
+    font-weight: var(--font-weight-bold);
+    padding: 6px 12px;
+    border-radius: 6px;
+    outline: none;
+    max-width: 300px;
+    text-align: center;
+}
+
+/* 右侧区域 */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.action-button {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: var(--text-secondary);
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-normal);
+    transition: var(--transition-medium);
+}
+
+.action-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.action-button.share {
+    background: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.action-button.share:hover {
+    background: #E85A74;
+    border-color: #E85A74;
+}
+
+.user-menu {
+    position: relative;
+}
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    transition: var(--transition-medium);
+}
+
+.user-avatar:hover {
+    border-color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* 响应式设计 */
+@media (max-width: 1200px) {
+    .scratch-header {
+        padding: 0 16px;
+    }
+
+    .header-left {
+        gap: 12px;
+    }
+
+    .header-center {
+        min-width: 150px;
+    }
+
+    .project-name,
+    .project-name-input {
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .scratch-header {
+        padding: 0 12px;
+        height: 52px;
+    }
+
+    .header-center {
+        min-width: 120px;
+    }
+
+    .project-name,
+    .project-name-input {
+        font-size: var(--font-size-medium);
+        max-width: 160px;
+    }
+
+    .header-right {
+        gap: 10px;
+    }
+
+    .action-button {
+        padding: 4px 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .scratch-header {
+        padding: 0 12px;
+        height: 50px;
+    }
+
+    .header-menu {
+        display: none;
+    }
+
+    .header-center {
+        min-width: 100px;
+    }
+
+    .project-name,
+    .project-name-input {
+        font-size: var(--font-size-medium);
+        max-width: 150px;
+    }
+
+    .user-actions {
+        gap: 4px;
+    }
+
+    .action-button {
+        padding: 4px 8px;
+        font-size: var(--font-size-small);
+    }
+
+    .action-button.see-inside {
+        display: none;
+    }
+
+    .user-avatar {
+        width: 28px;
+        height: 28px;
+        font-size: 14px;
+    }
+}

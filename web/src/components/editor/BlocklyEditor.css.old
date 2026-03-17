@@ -1,0 +1,152 @@
+/* Blockly 编辑器容器 */
+.blockly-editor {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.blockly-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Blockly 工具箱样式 - Scratch 风格 */
+.blocklyToolboxDiv {
+  background: #f9f9f9 !important;
+  border-right: 1px solid #e0e0e0 !important;
+  padding-top: 4px !important;
+}
+
+.blocklyTreeRoot {
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+.blocklyTreeRow {
+  min-height: 40px !important;
+  line-height: 40px !important;
+  padding-right: 8px !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+}
+
+.blocklyTreeRow:hover {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+}
+
+.blocklyTreeRow.blocklyTreeSelected {
+  background-color: #e3f2fd !important;
+}
+
+.blocklyTreeLabel {
+  font-size: 13px !important;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-weight: 500 !important;
+}
+
+/* Flyout（积木弹出面板）样式 */
+.blocklyFlyoutBackground {
+  fill: #f9f9f9 !important;
+  fill-opacity: 1 !important;
+  stroke: none !important;
+}
+
+
+/* 确保flyout内容正确显示 */
+.blocklyFlyoutLabelText {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-size: 11px !important;
+  fill: #575E75 !important;
+}
+
+/* 强制flyout重新定位 - 关键修复 */
+.blocklyFlyout {
+  position: fixed !important;
+  left: auto !important;
+  top: auto !important;
+  z-index: 10000 !important;
+  border-left: 1px solid #e0e0e0 !important;
+  background: #f9f9f9 !important;
+  min-width: 250px !important;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2) !important;
+  max-height: calc(100vh - 120px) !important;
+}
+
+/* 确保flyout正确相对于toolbox定位 */
+.blocklyToolboxDiv + .blocklyFlyout {
+  left: 160px !important;
+  top: 60px !important;
+}
+
+/* 额外修复：确保flyout内容可见 */
+.blocklyFlyout .blocklyScrollableRect {
+  fill: transparent !important;
+}
+
+.blocklyFlyout .blocklyBlockCanvas {
+  z-index: 10001 !important;
+}
+
+/* 工作区确保不遮盖flyout */
+.blocklyMainWorkspace {
+  z-index: 1 !important;
+}
+
+/* 避免积木重叠 */
+.blocklyBlockCanvas {
+  z-index: 10 !important;
+}
+
+/* 工作区域正确分层 */
+.blocklyWorkspace {
+  z-index: 5 !important;
+}
+
+/* Flyout滚动容器 */
+.blocklyFlyoutScrollbar {
+  z-index: 35 !important;
+}
+
+/* 工作区背景 */
+.blocklyMainBackground {
+  fill: #f9f9f9 !important;
+}
+
+/* 滚动条 */
+.blocklyScrollbarBackground {
+  fill: transparent !important;
+}
+
+.blocklyScrollbarHandle {
+  fill: #ccc !important;
+  rx: 4;
+  ry: 4;
+}
+
+.blocklyScrollbarHandle:hover {
+  fill: #aaa !important;
+}
+
+
+/* 避免积木元素重叠 */
+.blocklyDragging {
+  z-index: 30 !important;
+}
+
+/* 工作区网格线 */
+.blocklyGridLine {
+  stroke: #e0e0e0 !important;
+}
+
+/* Flyout滚动条 */
+.blocklyFlyout .blocklyScrollbarBackground {
+  fill: rgba(255, 255, 255, 0.1) !important;
+}
+
+.blocklyFlyout .blocklyScrollbarHandle {
+  fill: rgba(0, 0, 0, 0.3) !important;
+}

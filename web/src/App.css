@@ -1,0 +1,82 @@
+/* 应用程序主布局 */
+.app {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background: var(--bg-primary);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  overflow: hidden;
+}
+
+/* 主网格布局 - 两列：编辑器 + 右侧面板 */
+.app-main {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.app-main.stage-minimized .right-panel {
+  display: none;
+}
+
+/* 编辑器区域 */
+.editor-area {
+  display: flex;
+  flex: 1;
+  min-width: 400px;
+  background: #f0f0f0;
+  overflow: hidden;
+}
+
+/* 右侧面板 */
+.right-panel {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  min-width: 320px;
+  max-width: 500px;
+  border-left: 1px solid var(--border-color);
+  background: var(--bg-primary);
+}
+
+/* 舞台区域 */
+.stage-area {
+  flex: 1;
+  background: var(--bg-primary);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* 精灵列表区域 */
+.sprites-area {
+  background: var(--bg-primary);
+  border-top: 1px solid var(--border-color);
+  flex: 0 0 150px;
+  min-height: 100px;
+  max-height: 200px;
+}
+
+/* 响应式设计 */
+@media (max-width: 1024px) {
+  .right-panel {
+    width: 320px;
+    min-width: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-main {
+    flex-direction: column;
+  }
+
+  .right-panel {
+    display: none;
+  }
+
+  .editor-area {
+    min-width: 100%;
+  }
+}

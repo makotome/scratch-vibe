@@ -1,0 +1,166 @@
+:root {
+  /* Scratch 3.0 官方色彩主题 */
+  --scratch-orange: #FF6680;
+  --scratch-blue: #0FBD8C;
+  --scratch-purple: #9966FF;
+  --scratch-green: #0FBD8C;
+  --scratch-cyan: #00C7BE;
+  --scratch-yellow: #FFD500;
+
+  /* 主要界面色彩 */
+  --primary-color: #4C97FF;
+  --secondary-color: #FF6680;
+  --success-color: #0FBD8C;
+  --warning-color: #FFB366;
+  --info-color: #5CB3CC;
+
+  /* 背景和边框 */
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F9F9F9;
+  --bg-tertiary: #E5F0FF;
+  --bg-header: #4C97FF;
+  --bg-toolbox: #E5F3FF;
+
+  /* 文本颜色 */
+  --text-primary: #575E75;
+  --text-secondary: #FFFFFF;
+  --text-muted: #8FA4B3;
+
+  /* 边框和分割线 */
+  --border-color: #E0E6ED;
+  --border-light: #F0F4F8;
+  --border-dark: #D4D7DE;
+
+  /* 阴影 */
+  --shadow-light: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 4px 8px 0 rgba(0, 0, 0, 0.15);
+  --shadow-heavy: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+
+  /* 积木分类颜色（官方 Scratch 3.0）*/
+  --motion-color: #4C97FF;
+  --looks-color: #9966FF;
+  --sound-color: #CF63CF;
+  --events-color: #FFBF00;
+  --control-color: #FFAB19;
+  --sensing-color: #5CB3CC;
+  --operators-color: #59C059;
+  --variables-color: #FF8C1A;
+
+  /* 字体 */
+  --font-family: 'Helvetica Neue', Arial, sans-serif;
+  --font-size-small: 12px;
+  --font-size-medium: 14px;
+  --font-size-large: 16px;
+  --font-weight-normal: 400;
+  --font-weight-bold: 600;
+
+  /* 过渡动画 */
+  --transition-fast: 0.1s ease;
+  --transition-medium: 0.2s ease;
+  --transition-slow: 0.3s ease;
+
+  --sans: var(--font-family);
+  --heading: var(--font-family);
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: var(--font-size-medium)/145% var(--sans);
+  letter-spacing: 0.18px;
+  color-scheme: light dark;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    font-size: var(--font-size-small);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: #1E1E1E;
+    --bg-secondary: #2D2D2D;
+    --bg-tertiary: #1A365D;
+    --bg-header: #2B477A;
+    --text-primary: #FFFFFF;
+    --text-muted: #A0AEC0;
+    --border-color: #4A5568;
+    --shadow-light: rgba(0, 0, 0, 0.4) 0 2px 4px 0;
+    --shadow-medium: rgba(0, 0, 0, 0.5) 0 4px 8px 0;
+    --shadow-heavy: rgba(0, 0, 0, 0.6) 0 8px 16px 0;
+  }
+
+  #social .button-icon {
+    filter: invert(1) brightness(2);
+  }
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2 {
+  font-family: var(--heading);
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+h1 {
+  font-size: 56px;
+  letter-spacing: -1.68px;
+  margin: 32px 0;
+}
+
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 36px;
+    margin: 20px 0;
+  }
+}
+
+h2 {
+  font-size: 24px;
+  line-height: 118%;
+  letter-spacing: -0.24px;
+  margin: 0 0 8px;
+}
+
+@media (max-width: 1024px) {
+  h2 {
+    font-size: 20px;
+  }
+}
+
+p {
+  margin: 0;
+}
+
+code,
+.counter {
+  font-family: var(--mono);
+  display: inline-flex;
+  border-radius: 4px;
+  color: var(--text-h);
+}
+
+code {
+  font-size: 15px;
+  line-height: 135%;
+  padding: 4px 8px;
+  background: var(--code-bg);
+}
